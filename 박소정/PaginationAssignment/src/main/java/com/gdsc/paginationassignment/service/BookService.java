@@ -28,7 +28,7 @@ public class BookService {
     @Transactional(readOnly = true)
     public List<BookDto> findAllBooks(BookPagingDto bookPagingDto) {
         Sort sort = Sort.by(Sort.Direction.fromString(bookPagingDto.getSort()), "id");
-        Pageable pageable = PageRequest.of(bookPagingDto.getPage(),bookPagingDto.getSize(), sort);
+        Pageable pageable = PageRequest.of(bookPagingDto.getPage(), bookPagingDto.getSize(), sort);
 
         Page<Book> bookPages = bookRepository.findAll(pageable);
 
